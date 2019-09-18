@@ -29,7 +29,7 @@ git checkout $VERSION -- docs
 # Rename the docs to the version
 if [ -d "${VERSION}" ]
   then
-    rm -r $VERSION
+    git rm -r $VERSION
 fi
 mv docs $VERSION
 
