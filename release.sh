@@ -26,7 +26,8 @@ check_tagged_submodules
 
 # MERGING INTO MASTER
 echo "Merge develop into master"
-git checkout master
+# We need to force checking out master. Otherwise the script will sometimes randomly fail.
+git checkout -f  master
 git pull origin master
 git merge origin/develop
 
