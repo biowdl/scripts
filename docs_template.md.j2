@@ -42,7 +42,7 @@ The following is an overview of all available inputs in
 {% for ai in advanced|sort(attribute='name') -%}
 <dt id="{{ ai.name }}">{{ ai.name }}</dt>
 <dd>
-    <i><{{ ai.type }} &mdash; Default:</i> <code>{{ ai.default }}</code><br />
+    <i>{{ ai.type }} &mdash; Default:</i> <code>{{ ai.default }}</code><br />
     {{ ai.description }}
 </dd>
 {% endfor -%}
