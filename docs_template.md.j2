@@ -9,7 +9,7 @@ The following is an overview of all available inputs in
 {{ workflow_name }}.
 
 {% if required is defined %}
-### Required inputs
+## Required inputs
 <dl>
 {% for ri in required|sort(attribute='name') -%}
 <dt id="{{ ri.name }}"><a href="#{{ ri.name }}">{{ ri.name }}</a></dt>
@@ -22,7 +22,7 @@ The following is an overview of all available inputs in
 {% endif -%}
 
 {% if common is defined %}
-### Other common inputs
+## Other common inputs
 <dl>
 {% for ci in common|sort(attribute='name') -%}
 <dt id="{{ ci.name }}"><a href="#{{ ci.name }}">{{ ci.name }}</a></dt>
@@ -35,7 +35,7 @@ The following is an overview of all available inputs in
 {% endif -%}
 
 {% if advanced is defined %}
-### Advanced inputs
+## Advanced inputs
 <details>
 <summary> Show/Hide </summary>
 <dl>
@@ -51,7 +51,7 @@ The following is an overview of all available inputs in
 {% endif %}
 
 {% if other is defined %}
-### Other inputs
+## Other inputs
 <details>
 <summary> Show/Hide </summary>
 <dl>
@@ -67,7 +67,7 @@ The following is an overview of all available inputs in
 {% endif %}
 
 {% if excluded_inputs | length > 0 %}
-### Do not set these inputs!
+## Do not set these inputs!
 The following inputs should ***not*** be set, even though womtool may
 show them as being available inputs.
 {% for ei in excluded_inputs %}
