@@ -1,0 +1,76 @@
+---
+layout: default
+title: Inputs
+---
+
+# Inputs for {{ workflow_name }}
+
+The following is an overview of all available inputs in
+{{ workflow_name }}.
+
+{% if required is defined %}
+### Required inputs
+<dl>
+{% for ri in required|sort(attribute='name') -%}
+<dt id="{{ ri.name }}">{{ ri.name }}</dt>
+<dd>
+    <i>{{ ri.type }} &mdash; Default:</i> <code>{{ ri.default }}</code><br />
+    {{ ri.description }}
+</dd>
+{% endfor -%}
+</dl>
+{% endif -%}
+
+{% if common is defined %}
+### Other common inputs
+<dl>
+{% for ci in common|sort(attribute='name') -%}
+<dt id="{{ ci.name }}">{{ ci.name }}</dt>
+<dd>
+    <i>{{ ci.type }} &mdash; Default:</i> <code>{{ ci.default }}</code><br />
+    {{ ci.description }}
+</dd>
+{% endfor -%}
+</dl>
+{% endif -%}
+
+{% if advanced is defined %}
+### Advanced inputs
+<details>
+<summary> Show/Hide </summary>
+<dl>
+{% for ai in advanced|sort(attribute='name') -%}
+<dt id="{{ ai.name }}">{{ ai.name }}</dt>
+<dd>
+    <i>{{ ai.type }} &mdash; Default:</i> <code>{{ ai.default }}</code><br />
+    {{ ai.description }}
+</dd>
+{% endfor -%}
+</dl>
+</details>
+{% endif %}
+
+{% if other is defined %}
+### Other inputs
+<details>
+<summary> Show/Hide </summary>
+<dl>
+{% for oi in other|sort(attribute='name') -%}
+<dt id="{{ oi.name }}">{{ oi.name }}</dt>
+<dd>
+    <i>{{ oi.type }} &mdash;</i> Default: <code>{{ oi.default }}</code><br />
+    {{ oi.description }}
+</dd>
+{% endfor -%}
+</dl>
+</details>
+{% endif %}
+
+{% if excluded_inputs | length > 0 %}
+### Do not set these inputs!
+The following inputs should ***not*** be set, even though womtool may
+show them as being available inputs.
+{% for ei in excluded_inputs %}
+* {{ ei }}
+{%- endfor %}
+{% endif %}
