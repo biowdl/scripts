@@ -1,5 +1,7 @@
 Release checklist
 - [ ] Check outstanding issues on JIRA and Github
+- [ ] Generate inputs overview using wdl-aid:
+  `wdl-aid --strict -t scripts/docs_template.md.j2 pipeline.wdl > docs/inputs.md`
 - [ ] Publish documentation (`updateDocs.sh`) from `develop` branch
   - [ ] Copy docs folder to `gh-pages` branch
   - [ ] Overwrite existing develop folder with docs folder on `gh-pages`

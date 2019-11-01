@@ -12,7 +12,7 @@ The following is an overview of all available inputs in
 ### Required inputs
 <dl>
 {% for ri in required|sort(attribute='name') -%}
-<dt id="{{ ri.name }}">{{ ri.name }}</dt>
+<dt id="{{ ri.name }}"><a href="#{{ ri.name }}">{{ ri.name }}</a></dt>
 <dd>
     <i>{{ ri.type }} &mdash; Default:</i> <code>{{ ri.default }}</code><br />
     {{ ri.description }}
@@ -25,7 +25,7 @@ The following is an overview of all available inputs in
 ### Other common inputs
 <dl>
 {% for ci in common|sort(attribute='name') -%}
-<dt id="{{ ci.name }}">{{ ci.name }}</dt>
+<dt id="{{ ci.name }}"><a href="#{{ ci.name }}">{{ ci.name }}</a></dt>
 <dd>
     <i>{{ ci.type }} &mdash; Default:</i> <code>{{ ci.default }}</code><br />
     {{ ci.description }}
@@ -40,7 +40,7 @@ The following is an overview of all available inputs in
 <summary> Show/Hide </summary>
 <dl>
 {% for ai in advanced|sort(attribute='name') -%}
-<dt id="{{ ai.name }}">{{ ai.name }}</dt>
+<dt id="{{ ai.name }}"><a href="#{{ ai.name }}">{{ ai.name }}</a></dt>
 <dd>
     <i>{{ ai.type }} &mdash; Default:</i> <code>{{ ai.default }}</code><br />
     {{ ai.description }}
@@ -56,7 +56,7 @@ The following is an overview of all available inputs in
 <summary> Show/Hide </summary>
 <dl>
 {% for oi in other|sort(attribute='name') -%}
-<dt id="{{ oi.name }}">{{ oi.name }}</dt>
+<dt id="{{ oi.name }}"><a href="#{{ oi.name }}">{{ oi.name }}</a></dt>
 <dd>
     <i>{{ oi.type }} &mdash;</i> Default: <code>{{ oi.default }}</code><br />
     {{ oi.description }}
