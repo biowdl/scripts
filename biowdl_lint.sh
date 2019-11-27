@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Validate every WDL file in the repository with womtool validate.
 set -e
 for WDL_FILE in $(git ls-files *.wdl)
   do
