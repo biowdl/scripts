@@ -6,7 +6,7 @@ for WDL_FILE in $(git ls-files *.wdl)
     echo $WDL_FILE
     womtool validate $WDL_FILE
   done
-git submodule foreach --recursive \
+git submodule foreach \
 bash -c '\
 if [ "$(git tag --contains)" == "" ]; \
   then git checkout develop && git pull && \
