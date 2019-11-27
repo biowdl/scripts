@@ -8,7 +8,7 @@ for WDL_FILE in $(git ls-files *.wdl)
   done
 git submodule foreach --recursive \
 bash -c '\
-if ["$(git tag --contains)" == "" ]; \
+if [ "$(git tag --contains)" == "" ]; \
   then git checkout develop && git pull && \
   git submodule update --init --recursive ; \
   else echo "on tag: $(git tag --contains)" ; \
