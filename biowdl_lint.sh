@@ -6,6 +6,15 @@ for WDL_FILE in $(git ls-files *.wdl)
     echo $WDL_FILE
     womtool validate $WDL_FILE
   done
+
+# For each submodule
+# 1. Check if there is a tag. If so, we are using a stable version.
+# 2. If not, we must be on the main develop branch. Make sure it is the
+#    latest version of this branch.
+# Afterwards check if there are changes. If so, some submodules have been
+# updated to a newer commit, so that means they were not on develop. In that
+# case exit 1.
+
 git submodule foreach \
 bash -c '\
 if [ "$(git tag --contains)" == "" ]; \
