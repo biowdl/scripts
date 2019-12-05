@@ -6,6 +6,7 @@ for WDL_FILE in $(git ls-files *.wdl)
   do
     echo $WDL_FILE
     womtool validate $WDL_FILE
+    miniwdl check $WDL_FILE
   done
 
 # For each submodule
