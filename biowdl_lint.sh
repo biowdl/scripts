@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
 # Validate every WDL file in the repository with womtool validate and miniwdl check.
+# Also check parameter_meta presence unless the argument "skip-wdl-aid" is given.
 set -e
 for WDL_FILE in $(git ls-files *.wdl)
   do
     echo $WDL_FILE
     womtool validate $WDL_FILE
     miniwdl check $WDL_FILE
-    wdl-aid --strict $WDL_FILE
+    if [[ "$1" != "skip-wdl-aid" ]]
+      then
+        wdl-aid --strict $WDL_FILE
+      fi
   done
 
 # For each submodule
