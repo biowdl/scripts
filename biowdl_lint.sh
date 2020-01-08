@@ -10,7 +10,7 @@ for WDL_FILE in $(git ls-files *.wdl)
     miniwdl check $WDL_FILE
     if [[ "$1" != "skip-wdl-aid" ]]
       then
-        wdl-aid --strict $WDL_FILE
+        wdl-aid --strict $WDL_FILE > /dev/null
       fi
   done
 
