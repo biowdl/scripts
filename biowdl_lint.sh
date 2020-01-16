@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 
 # Validate every WDL file in the repository with womtool validate and miniwdl check.
+# Also check parameter_meta presence unless the argument "skip-wdl-aid" is given.
 set -e
 for WDL_FILE in $(git ls-files *.wdl)
   do
     echo $WDL_FILE
     womtool validate $WDL_FILE
     miniwdl check $WDL_FILE
+    # Run WDL-AID in strict mode (error if parameter_meta is missing for any
+    # inputs). WDL-AID also errors if there is no workflow in the WDL file
+    # but in this case we don't care about that. As such if WDL-AID errors
+    # we check if it is the error we care about.
+    wdl-aid --strict $WDL_FILE > /dev/null 2> wdl-aid_stderr || \
+    ! grep -z "ValueError: Missing parameter_meta for inputs:" wdl-aid_stderr
   done
 
 # For each submodule
