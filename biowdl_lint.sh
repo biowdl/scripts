@@ -12,8 +12,11 @@ for WDL_FILE in $(git ls-files *.wdl)
     # inputs). WDL-AID also errors if there is no workflow in the WDL file
     # but in this case we don't care about that. As such if WDL-AID errors
     # we check if it is the error we care about.
-    wdl-aid --strict $WDL_FILE > /dev/null 2> wdl-aid_stderr || \
-    (grep -z "ValueError: Missing parameter_meta for inputs:" wdl-aid_stderr && exit 1)
+    wdl-aid --strict $WDL_FILE > /dev/null 2> wdl-aid_stderr ||
+    if grep -z "ValueError: Missing parameter_meta for inputs:" wdl-aid_stderr
+      then
+        exit 1
+    fi
   done
 
 # For each submodule
