@@ -1,5 +1,8 @@
 Release checklist
 - [ ] Check outstanding issues on JIRA and Github
+- [ ] Update all submodules to latest master with: `git submodule foreach "git checkout master;git pull; git submodule foreach --recursive 'git fetch'; git submodule update --init --recursive"`
+- [ ] check all submodules are tagged correctly with `git submodule`
+- [ ] run tests to confirm to be released version works.
 - [ ] Generate inputs overview using wdl-aid:
   `wdl-aid --strict -t scripts/docs_template.md.j2 pipeline.wdl > docs/inputs.md`
 - [ ] Publish documentation (`updateDocs.sh`) from `develop` branch
@@ -8,9 +11,6 @@ Release checklist
   - [ ] Push changes to `gh-pages branch`
 - [ ] Check [latest documentation
 ](https://biowdl.github.io/) looks fine
-- [ ] Update all submodules to latest master with: `git submodule foreach "git checkout master;git pull; git submodule foreach --recursive 'git fetch'; git submodule update --init --recursive"`
-- [ ] check all submodules are tagged correctly with `git submodule`
-- [ ] run tests to confirm to be released version works.
 - [ ] Change current development version in `CHANGELOG.md` to stable version.
 - [ ] Run the release script `release.sh`
   - [ ] Check all submodules are tagged
