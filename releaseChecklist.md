@@ -38,5 +38,12 @@ General release checklist
   - [ ] Set latest version to new version
   - [ ] Push changes to `gh-pages branch`
 - [ ] Create a new release from the pushed tag on github
+- [ ] Package the wdl files with `wdl-packager --reproducible -a LICENSE 
+      -a dockerImages.yml <WDL_FILE>`
+- [ ] Add the package(s) to the github release. Also add the original WDL file
+      as `<pipeline>_<version>.wdl` following the same naming as the package.
+      This alllows for usage of wdl and imports zip with cromwell without 
+      requiring the user to extract the package.
+
   
   
