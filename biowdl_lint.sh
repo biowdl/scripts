@@ -45,6 +45,6 @@ git submodule foreach \
     '
     if [ ${name} != "." ]; then
         git status | grep "Your branch is ahead" && \
-        (echo ERROR: Git changes detected in ${name}. Submodules should not be ahead of upstream. && exit 1)
+        (echo ERROR: Git detected ${name} is ahead of the remote. Please make sure all submodule changes have been pushed first. && exit 1)
     fi
     '
