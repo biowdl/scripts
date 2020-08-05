@@ -38,3 +38,14 @@ fi
 '
 git diff --exit-code || \
 (echo ERROR: Git changes detected. Submodules should either be tagged or on the latest version of develop. && exit 1)
+
+# Make sure none of the submodules are ahead of upstream. Otherwise, the checks
+# will fail when someone else pulls the repository
+git submodule foreach \
+    '
+    if [ ${name} != "." ]; then
+        git status | grep "Your branch is ahead" && \
+        echo ERROR: Git detected ${name} is ahead of the remote. Please make sure all submodule changes have been pushed first. && exit 1
+    fi
+    echo ${name} is not ahead
+    '
