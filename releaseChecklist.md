@@ -18,9 +18,10 @@
 
 # General release checklist:
 - [ ] Check outstanding issues on JIRA and Github.
-- [ ] Update all submodules to latest master with: `git submodule for
-      each "git checkout master;git pull; git submodule for
-      each --recursive 'git fetch'; git submodule update --init --recursive"`.
+- [ ] Update all submodules to latest master
+      with: `git submodule foreach "git checkout master;git pull;
+      git submodule foreach --recursive 'git fetch';
+      git submodule update --init --recursive"`.
 - [ ] Check all submodules are tagged correctly with `git submodule`.
 - [ ] Run tests to confirm to be released version works.
 - [ ] Generate inputs overview using wdl-aid:
