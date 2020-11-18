@@ -3,7 +3,7 @@ This repository contains the [Biowdl](https://github.com/biowdl) linting
 and releasing scripts.
 
 ## About
-This workflow is part of [Biowdl](https://github.com/biowdl) developed by the
+This repository is part of [Biowdl](https://github.com/biowdl) developed by the
 SASC team at [Leiden University Medical Center](https://www.lumc.nl/).
 
 ## Contact
