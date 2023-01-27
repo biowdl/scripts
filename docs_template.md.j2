@@ -8,10 +8,10 @@ title: "Inputs: {{ workflow_name }}"
 The following is an overview of all available inputs in
 {{ workflow_name }}.
 
-{% if required is defined %}
+{% if inputs.required is defined %}
 ## Required inputs
 <dl>
-{% for ri in required|sort(attribute='name') -%}
+{% for ri in inputs.required|sort(attribute='name') -%}
 <dt id="{{ ri.name }}"><a href="#{{ ri.name }}">{{ ri.name }}</a></dt>
 <dd>
     <i>{{ ri.type }} </i>
@@ -25,10 +25,10 @@ The following is an overview of all available inputs in
 </dl>
 {% endif -%}
 
-{% if common is defined %}
+{% if inputs.common is defined %}
 ## Other common inputs
 <dl>
-{% for ci in common|sort(attribute='name') -%}
+{% for ci in inputs.common|sort(attribute='name') -%}
 <dt id="{{ ci.name }}"><a href="#{{ ci.name }}">{{ ci.name }}</a></dt>
 <dd>
     <i>{{ ci.type }} </i>
@@ -42,12 +42,12 @@ The following is an overview of all available inputs in
 </dl>
 {% endif -%}
 
-{% if advanced is defined %}
+{% if inputs.advanced is defined %}
 ## Advanced inputs
 <details>
 <summary> Show/Hide </summary>
 <dl>
-{% for ai in advanced|sort(attribute='name') -%}
+{% for ai in inputs.advanced|sort(attribute='name') -%}
 <dt id="{{ ai.name }}"><a href="#{{ ai.name }}">{{ ai.name }}</a></dt>
 <dd>
     <i>{{ ai.type }} </i>
@@ -62,12 +62,12 @@ The following is an overview of all available inputs in
 </details>
 {% endif %}
 
-{% if other is defined %}
+{% if inputs.other is defined %}
 ## Other inputs
 <details>
 <summary> Show/Hide </summary>
 <dl>
-{% for oi in other|sort(attribute='name') -%}
+{% for oi in inputs.other|sort(attribute='name') -%}
 <dt id="{{ oi.name }}"><a href="#{{ oi.name }}">{{ oi.name }}</a></dt>
 <dd>
     <i>{{ oi.type }} </i>
